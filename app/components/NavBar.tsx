@@ -4,7 +4,7 @@ import LogIn from "./NavBar/LogIn";
 
 const NavBar = () => {
   return (
-    <nav className="flex bg-white justify-between">
+    <nav className="flex justify-between">
       <CirclChatLogo />
 
       <LogIn></LogIn>
