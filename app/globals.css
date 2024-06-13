@@ -31,3 +31,11 @@ body {
     text-wrap: balance;
   }
 }
+
+.bg-primary {
+  background-color: #9757ff;
+}
+
+.primary {
+  color: #9757ff;
+}
