@@ -6,7 +6,7 @@ const Message = () => {
       <h2 className="font-bold text-[28px]">
         Perfect Place to Connect and Collaborate
       </h2>
-      <h3 className="text-xl text-center">
+      <h3 className="text-xl text-center dark:text-white/80">
         Create a group, invite people, and collaborate all in one place.
         Seamlessly work together, sharing ideas to achieve collective results.
         This platform serves as your go-to for connecting and accomplishing
