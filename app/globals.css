@@ -19,33 +19,3 @@
 .primary {
   color: #9757ff;
 }
-
-.blob {
-  background: #9757ff;
-  border-radius: 50%;
-  filter: blur(30px);
-  animation: blobAnimation 10s infinite;
-}
-
-.reverseBlob {
-  background: #9757ff;
-  border-radius: 50%;
-  filter: blur(30px);
-  animation: blobAnimation reverse 10s infinite;
-}
-
-@keyframes blobAnimation {
-  0%,
-  100% {
-    transform: scale(1) translate(0, 0) rotate(0deg);
-  }
-  25% {
-    transform: scale(1.2) translate(-10px, -10px) rotate(45deg);
-  }
-  50% {
-    transform: scale(1.1) translate(10px, -20px) rotate(90deg);
-  }
-  75% {
-    transform: scale(1.3) translate(-20px, 10px) rotate(135deg);
-  }
-}

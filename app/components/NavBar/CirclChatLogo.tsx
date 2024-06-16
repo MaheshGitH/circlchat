@@ -10,7 +10,8 @@ const CirclChatLogol = () => {
       <Logo></Logo>
       <h1
         className={
-          oranienbaum.className + " dark:text-white text-black text-[22px]"
+          oranienbaum.className +
+          " dark:text-white text-black text-[22px] lg:text-[26px]"
         }
       >
         circlchat
