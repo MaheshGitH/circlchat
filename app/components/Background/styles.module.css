@@ -1,9 +1,9 @@
 .dotPattern {
-  background-image: radial-gradient(#ffffff 2px, transparent 2px),
-    radial-gradient(#ffffff 2px, transparent 2px);
+  background-image: radial-gradient(#535353 2px, transparent 2px),
+    radial-gradient(#535353 2px, transparent 2px);
   background-size: 36px 36px;
-  background-position: 0 0, 18px 18px;
-  background-color: rgba(255, 255, 255, 0);
+  background-position: 0 0, 15px 15px;
+  background-color: transparent;
 }
 
 .blob {
