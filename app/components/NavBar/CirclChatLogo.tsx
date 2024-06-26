@@ -7,7 +7,9 @@ const oranienbaum = Oranienbaum({ weight: "400", subsets: ["latin"] });
 const CirclChatLogol = () => {
   return (
     <div className="bg-transparent flex items-center">
-      <Logo></Logo>
+      <span className="size-20 lg:size-24 fill-black dark:fill-white flex justify-center">
+        <Logo></Logo>
+      </span>
       <h1
         className={
           oranienbaum.className +

@@ -1,10 +1,25 @@
-import React, { FormEvent } from "react";
+import { signIn } from "next-auth/react";
+import React, { FormEvent, useState } from "react";
+import { CgSpinner } from "react-icons/cg";
 
-const ResendSignIn = () => {
-  const handleSubmit = (event: FormEvent) => {};
+interface Props {
+  disable: boolean;
+  Provider: (value: string) => void;
+}
+
+const ResendSignIn = ({ disable, Provider }: Props) => {
+  const [status, setStatus] = useState(false);
+  const handleSubmit = async (event: FormEvent) => {
+    Provider("resend");
+    setStatus(true);
+    event.preventDefault();
+    const formData = new FormData(event.target as HTMLFormElement);
+    const email = formData.get("email");
+    await signIn("resend", { email, callbackUrl: "/" });
+  };
   return (
-    <form className="flex flex-col" onSubmit={(event) => handleSubmit(event)}>
-      <label className="text-black cursor-pointer" htmlFor="email">
+    <form className="flex flex-col" onSubmit={handleSubmit}>
+      <label className="text-black cursor-pointer mb-4" htmlFor="email">
         Verify your email
       </label>
       <input
@@ -15,10 +30,11 @@ const ResendSignIn = () => {
         placeholder="Email"
       />
       <button
-        className="bg-primary w-72 py-3 inline-block rounded-md mt-5"
+        disabled={disable}
+        className="bg-primary disabled:blur-[0.6px] w-72 py-3 flex justify-center items-center gap-4 rounded-md mt-10"
         type="submit"
       >
-        Next
+        Next{status ? <CgSpinner className="size-5 animate-spin" /> : null}
       </button>
     </form>
   );
