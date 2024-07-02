@@ -17,7 +17,7 @@ const GitHubSignIn = ({ disable, Provider }: Props) => {
       onClick={() => {
         Provider("git");
         setStatus(true);
-        signIn("github", { callbackUrl: "/" });
+        signIn("github", { callbackUrl: "/signin/newuser" });
       }}
       className={`disabled:blur-[0.6px] text-black mb-10  w-72 flex items-center pl-5 py-2 border-black border-[1px] rounded-md bg-white m-4 ${
         status ? "gap-6" : "gap-8"

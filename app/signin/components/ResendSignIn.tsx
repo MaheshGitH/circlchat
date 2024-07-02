@@ -15,7 +15,7 @@ const ResendSignIn = ({ disable, Provider }: Props) => {
     event.preventDefault();
     const formData = new FormData(event.target as HTMLFormElement);
     const email = formData.get("email");
-    await signIn("resend", { email, callbackUrl: "/" });
+    await signIn("resend", { email, callbackUrl: "/signin/newuser" });
   };
   return (
     <form className="flex flex-col" onSubmit={handleSubmit}>
@@ -23,7 +23,7 @@ const ResendSignIn = ({ disable, Provider }: Props) => {
         Verify your email
       </label>
       <input
-        className="bg-gray-200 w-72 text-black pl-5 pr-2 py-3 rounded-md border-b border-black focus:outline-none"
+        className="bg-white w-72 text-black px-2 py-2 border-b border-black focus:outline-none"
         type="text"
         id="email"
         name="email"
@@ -34,7 +34,7 @@ const ResendSignIn = ({ disable, Provider }: Props) => {
         className="bg-primary disabled:blur-[0.6px] w-72 py-3 flex justify-center items-center gap-4 rounded-md mt-10"
         type="submit"
       >
-        Next{status ? <CgSpinner className="size-5 animate-spin" /> : null}
+        Next{status && <CgSpinner className="size-5 animate-spin" />}
       </button>
     </form>
   );

@@ -20,9 +20,43 @@ const providers: Provider[] = [
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers,
   adapter: PrismaAdapter(prisma),
-  session: { strategy: "database" },
+  session: { strategy: "jwt" },
 
   pages: {
     signIn: "/signin",
+    verifyRequest: "/signin/check-email",
+    newUser: "/signin/newuser",
+  },
+
+  callbacks: {
+    async signIn({ user, account }) {
+      const email = user.email as string;
+
+      // Check if the email is already associated with another account
+      const existingUser = await prisma.user.findUnique({
+        where: { email },
+        include: { accounts: true },
+      });
+
+      if (existingUser) {
+        // If the user exists and is trying to sign in with a different provider, deny access
+        const isSameProvider = existingUser.accounts.some(
+          (acc) => acc.provider === account?.provider
+        );
+        if (!isSameProvider) {
+          // Redirect to error page
+          return `/auth/error?error=AccountExists`;
+        }
+      }
+
+      return true; // Allow sign in
+    },
+
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
   },
 });
