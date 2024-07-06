@@ -31,7 +31,7 @@ const ResendSignIn = ({ disable, Provider }: Props) => {
       />
       <button
         disabled={disable}
-        className="bg-primary disabled:blur-[0.6px] w-72 py-3 flex justify-center items-center gap-4 rounded-md mt-10"
+        className="bg-primary text-white disabled:blur-[0.6px] w-72 py-3 flex justify-center items-center gap-4 rounded-md mt-10"
         type="submit"
       >
         Next{status && <CgSpinner className="size-5 animate-spin" />}
