@@ -8,15 +8,16 @@ generator client {
 }
 
 model User {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
   name          String?
-  user_id       String?   @unique @map("userId")
-  email         String?   @unique
+  user_id       String?     @unique @map("userId")
+  email         String?     @unique
   emailVerified DateTime?
   image         String?
   accounts      Account[]
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  groups        GroupList[]
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
 
   @@map("users")
 }
@@ -52,4 +53,19 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verification_tokens")
+}
+
+model Group {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  groupName String
+  image     String?
+  createdAt DateTime @default(now())
+
+  @@map("groups")
+}
+
+type GroupList {
+  groupId   String
+  groupName String
+  image     String?
 }

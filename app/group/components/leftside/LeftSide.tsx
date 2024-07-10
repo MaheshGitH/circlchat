@@ -2,6 +2,7 @@ import React from "react";
 import Head from "./Head";
 import Group from "./Group";
 import Profile from "./Profile";
+import AddGroup from "./AddGroup";
 
 const LeftSide = () => {
   return (
@@ -12,9 +13,7 @@ const LeftSide = () => {
       </div>
       <div className="flex justify-between items-center p-4">
         <Profile></Profile>
-        <span className="bg-primary rounded-full text-white size-10 text-center leading-10 text-2xl">
-          +
-        </span>
+        <AddGroup></AddGroup>
       </div>
     </div>
   );

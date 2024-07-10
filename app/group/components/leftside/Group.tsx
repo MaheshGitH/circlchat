@@ -1,12 +1,21 @@
+import { auth } from "@/auth";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Group = () => {
-  return (
+const Group = async () => {
+  const session = await auth();
+  const user = await prisma?.user.findUnique({
+    where: {
+      email: session?.user?.email!,
+    },
+  });
+
+  return user?.groups.map((group) => (
     <Link
-      href="/group?groupName=Windows"
-      className="bg-white border-b-2 border-black  mb-1 flex py-3 pl-5 pr-2 max-w-[760px] cursor-pointer"
+      key={group.groupId}
+      href={`/group?groupId=${group.groupId}`}
+      className="bg-white border-b-[1px] border-black  mb-1 flex py-3 pl-5 pr-2 max-w-[760px] cursor-pointer"
     >
       <span className="size-16 overflow-hidden rounded-full flex justify-center">
         <Image
@@ -16,11 +25,11 @@ const Group = () => {
           height={64}
           width={64}
           alt="next image"
-        ></Image>
+        />
       </span>
       <div className="ml-5 mt-px flex-1">
         <span className="flex justify-between items-center mb-2 w-full">
-          <h4 className="text-xl font-bold text-black">Windows</h4>
+          <h4 className="text-xl font-bold text-black">{group.groupName}</h4>
           <p className="text-xs mb-1 primary">2 hr ago</p>
         </span>
         <span className="flex justify-between">
@@ -33,7 +42,7 @@ const Group = () => {
         </span>
       </div>
     </Link>
-  );
+  ));
 };
 
 export default Group;
