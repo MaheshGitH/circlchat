@@ -6,7 +6,7 @@ import AddGroup from "./AddGroup";
 
 const LeftSide = () => {
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col border-r-[1px] border-black">
       <Head></Head>
       <div className="flex-grow">
         <Group></Group>

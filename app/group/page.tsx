@@ -1,8 +1,15 @@
 import React from "react";
 import LeftSide from "./components/leftside/LeftSide";
 import { HiMenuAlt1 } from "react-icons/hi";
+import GroupInstance from "./components/rightside/GroupInstance";
 
-const page = async () => {
+interface Props {
+  searchParams: { groupId: string | undefined };
+}
+
+const page = async ({ searchParams }: Props) => {
+  const groupId = searchParams.groupId;
+
   return (
     <div className="flex h-dvh w-screen">
       <input id="hide" type="checkbox" className="hidden peer" />
@@ -12,10 +19,18 @@ const page = async () => {
       >
         <HiMenuAlt1 className="size-10" />
       </label>
-      <div className="peer-checked:md:hidden md:max-w-96 flex-grow">
+      <div
+        className={`peer-checked:md:hidden md:max-w-96 flex-grow ${
+          groupId ? " max-md:hidden " : " block "
+        }`}
+      >
         <LeftSide></LeftSide>
       </div>
-      <div className="bg-slate-700 md:flex-grow"></div>
+      <div
+        className={`md:flex-grow ${groupId ? " flex-grow " : " max-md:hidden"}`}
+      >
+        <GroupInstance groupId={groupId as string}></GroupInstance>
+      </div>
     </div>
   );
 };

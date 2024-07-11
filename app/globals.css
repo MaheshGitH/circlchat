@@ -19,3 +19,7 @@
 .primary {
   color: #9757ff;
 }
+
+.shadowTop {
+  box-shadow: 0 -2px 10px #9757ff;
+}
