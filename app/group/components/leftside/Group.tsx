@@ -19,9 +19,8 @@ const Group = async () => {
     >
       <span className="size-16 overflow-hidden rounded-full flex justify-center">
         <Image
-          priority
           style={{ objectFit: "cover" }}
-          src="/google-logo.jpg"
+          src="/bugatti-veyron.jpg"
           height={64}
           width={64}
           alt="next image"
