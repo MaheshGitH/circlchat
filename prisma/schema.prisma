@@ -57,10 +57,11 @@ model VerificationToken {
 }
 
 model Group {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  groupName String
-  image     String?
-  createdAt DateTime @default(now())
+  id           String         @id @default(auto()) @map("_id") @db.ObjectId
+  groupName    String
+  image        String?
+  createdAt    DateTime       @default(now())
+  conversation Conversation[]
 
   @@map("groups")
 }
@@ -72,8 +73,15 @@ type GroupList {
 }
 
 type Invitation {
-  PWI       String
+  PWS       String
   groupName String
   groupId   String
   image     String?
+}
+
+type Conversation {
+  userName    String
+  userProfile String?
+  content     String
+  createdAt   DateTime @default(now())
 }

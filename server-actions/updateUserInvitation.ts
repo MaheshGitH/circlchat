@@ -29,7 +29,7 @@ export default async function updateUserInvitation({
     data: {
       invitaion: {
         push: {
-          PWI: user?.user_id as string,
+          PWS: user?.user_id as string,
           groupId: groupId,
           groupName: profileName,
         },

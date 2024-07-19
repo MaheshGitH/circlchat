@@ -9,7 +9,7 @@ const Continue = () => {
   return (
     <button
       disabled={pending}
-      className={`" bg-primary rounded py-3 flex justify-center items-center duration-200 ${
+      className={`" bg-primary text-white rounded py-3 flex justify-center items-center duration-200 ${
         pending ? "gap-2 blur-[0.5px]" : " gap-0"
       }`}
       type="submit"

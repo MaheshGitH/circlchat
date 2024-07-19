@@ -22,7 +22,7 @@ const AddGroup = () => {
 
   const closeMAndSubmit = () => {
     if (dialogRef.current && formRef.current) {
-      formRef.current.submit();
+      formRef.current.requestSubmit();
       dialogRef.current.close();
     }
   };
