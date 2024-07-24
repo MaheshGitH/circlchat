@@ -27,7 +27,7 @@ export default async function updateUserInvitation({
       user_id: ("@" + userName) as string,
     },
     data: {
-      invitaion: {
+      invitation: {
         push: {
           PWS: user?.user_id as string,
           groupId: groupId,

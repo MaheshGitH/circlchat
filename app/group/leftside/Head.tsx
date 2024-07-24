@@ -13,7 +13,7 @@ const Head = async () => {
   });
 
   const invitationNum =
-    user?.invitaion.length! > 99 ? "99+" : user?.invitaion.length;
+    user?.invitation.length! > 99 ? "99+" : user?.invitation.length;
   return (
     <section className="mb-2">
       <div className="flex justify-between">
@@ -21,7 +21,7 @@ const Head = async () => {
           <Logo />
         </span>
         <Mail
-          group={user?.invitaion!}
+          group={user?.invitation!}
           userId={user?.user_id!}
           invitationNum={invitationNum as number | "99+"}
         ></Mail>

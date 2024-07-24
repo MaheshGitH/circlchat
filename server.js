@@ -1,7 +1,7 @@
 import { createServer } from "node:http";
 import next from "next";
 import { Server } from "socket.io";
-import { prisma } from "./prisma/prismaClient";
+import clientPromise from "./mongodb/mongodb.js";
 
 const dev = process.env.NODE_ENV !== "production";
 const hostname = "localhost";
@@ -16,7 +16,6 @@ app.prepare().then(() => {
   const io = new Server(httpServer);
 
   let previousGroupID;
-
   io.on("connection", (socket) => {
     socket.on("leaveGroup", (groupId) => {
       if (previousGroupID === groupId) return;
@@ -24,13 +23,27 @@ app.prepare().then(() => {
 
       socket.removeAllListeners("message");
     });
-    socket.on("groupID", (groupId) => {
+    socket.on("groupID", async (groupId) => {
       previousGroupID = groupId;
       socket.join(groupId);
 
+      const db = (await clientPromise).db("conversation");
+      const collection = db.collection(groupId);
+
       socket.on("message", (data) => {
-        socket.to(groupId).emit("recieve", data, groupId);
+        collection.insertOne({
+          userId: data.userId,
+          userName: data.userName,
+          content: data.content,
+          createdAt: new Date(),
+        });
+        io.in(groupId).emit("recieve", data);
       });
+    });
+
+    socket.on("disconnect", () => {
+      socket.removeAllListeners("leaveGroup");
+      socket.removeAllListeners("groupID");
     });
   });
 

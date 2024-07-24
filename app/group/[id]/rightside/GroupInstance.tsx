@@ -24,7 +24,6 @@ const GroupInstance = async ({ groupId }: Props) => {
       id: groupId,
     },
   });
-  if (!group?.conversation) return;
 
   return (
     <div className="flex flex-col justify-between h-dvh">
@@ -34,11 +33,15 @@ const GroupInstance = async ({ groupId }: Props) => {
           profileName={group?.groupName as string}
         />
       </div>
-      <div className="flex-grow overflow-auto">
-        <Conversation />
+      <div className="flex-grow overflow-y-auto overflow-x-hidden">
+        <Conversation userId={user?.user_id as string} groupId={groupId} />
       </div>
       <div className="h-20 flex-shrink-0 shadowTop">
-        <TypeMessage groupId={groupId} userName={user?.name} />
+        <TypeMessage
+          userId={user?.user_id as string}
+          groupId={groupId}
+          userName={user?.name}
+        />
       </div>
     </div>
   );

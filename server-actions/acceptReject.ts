@@ -16,7 +16,24 @@ export default async function acceptReject({
   groupName,
 }: Props) {
   const acceptReject = formData.get("action");
-  console.log(groupId);
+
+  if (acceptReject === "Reject") {
+    await prisma.user.update({
+      where: {
+        user_id: userId,
+      },
+      data: {
+        invitation: {
+          deleteMany: {
+            where: {
+              groupId: groupId,
+            },
+          },
+        },
+      },
+    });
+  }
+
   if (acceptReject === "Accept") {
     try {
       await prisma.$transaction(async (prisma) => {
@@ -26,7 +43,7 @@ export default async function acceptReject({
           },
 
           data: {
-            invitaion: {
+            invitation: {
               deleteMany: {
                 where: {
                   groupId: groupId,

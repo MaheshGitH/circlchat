@@ -9,9 +9,10 @@ import { socket } from "@/app/socket";
 interface Props {
   groupId: string;
   userName: string | null | undefined;
+  userId: string;
 }
 
-const TypeMessage = ({ groupId, userName }: Props) => {
+const TypeMessage = ({ groupId, userName, userId }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -24,10 +25,11 @@ const TypeMessage = ({ groupId, userName }: Props) => {
   }, [groupId]);
 
   const sendMessage = () => {
-    if (!inputRef.current) return;
+    if (!inputRef.current || inputRef.current.value === "") return;
 
     const message = inputRef.current?.value;
     socket.emit("message", {
+      userId: userId,
       userName: userName,
       content: message,
     });

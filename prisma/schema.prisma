@@ -16,7 +16,7 @@ model User {
   image         String?
   accounts      Account[]
   groups        GroupList[]
-  invitaion     Invitation[]
+  invitation    Invitation[]
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
 
@@ -57,11 +57,10 @@ model VerificationToken {
 }
 
 model Group {
-  id           String         @id @default(auto()) @map("_id") @db.ObjectId
-  groupName    String
-  image        String?
-  createdAt    DateTime       @default(now())
-  conversation Conversation[]
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  groupName String
+  image     String?
+  createdAt DateTime @default(now())
 
   @@map("groups")
 }
@@ -79,9 +78,9 @@ type Invitation {
   image     String?
 }
 
-type Conversation {
-  userName    String
-  userProfile String?
-  content     String
-  createdAt   DateTime @default(now())
-}
+// type Conversation {
+//   userName    String
+//   userProfile String?
+//   content     String
+//   createdAt   DateTime @default(now())
+// }

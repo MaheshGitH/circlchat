@@ -15,7 +15,7 @@ const Group = async () => {
     <Link
       key={group.groupId}
       href={`/group/${group.groupId}`}
-      className="bg-white border-b-[1px] border-black  mb-1 flex py-3 pl-5 pr-2 max-w-[760px] cursor-pointer"
+      className="border-b-[1px] border-black  mb-1 flex py-3 pl-5 pr-2 max-w-[760px] cursor-pointer"
     >
       <span className="size-16 overflow-hidden rounded-full flex justify-center">
         <Image

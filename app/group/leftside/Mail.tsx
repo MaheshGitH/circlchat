@@ -1,20 +1,20 @@
 "use client";
 
 import acceptReject from "@/server-actions/acceptReject";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { MdOutlineMail } from "react-icons/md";
-
-interface Props {
-  userId: string;
-  invitationNum: number | "99+";
-  group?: Invitation[];
-}
-
+import Image from "next/image";
 interface Invitation {
   PWS: string;
   groupName: string;
   groupId: string;
   image: string | null;
+}
+
+interface Props {
+  userId: string;
+  invitationNum: number | "99+";
+  group?: Invitation[];
 }
 
 const Mail = ({ userId, invitationNum, group }: Props) => {
@@ -43,13 +43,23 @@ const Mail = ({ userId, invitationNum, group }: Props) => {
           {invitationNum}
         </p>
       </span>
-      <dialog className="rounded focus:outline-none" ref={dialogRef}>
+      <dialog
+        className="rounded focus:outline-none relative overflow-x-hidden overflow-y-scroll"
+        ref={dialogRef}
+      >
+        <button
+          className="absolute top-0 right-0 px-4 py-2 border-2 rounded-full rotate-45"
+          onClick={closeModal}
+        >
+          +
+        </button>
         {group &&
-          group.map((g) => (
+          group.map((inv, index) => (
             <form
+              key={index}
               action={(formData: FormData) => {
-                const groupId = g.groupId;
-                const groupName = g.groupName;
+                const groupId = inv.groupId;
+                const groupName = inv.groupName;
                 acceptReject({ formData, userId, groupId, groupName });
               }}
               onKeyDown={(event) => {
@@ -59,13 +69,31 @@ const Mail = ({ userId, invitationNum, group }: Props) => {
               }}
               className="flex flex-col gap-14 items-center p-10"
             >
-              <button onClick={closeModal} name="action" value="Reject">
-                Reject
-              </button>
-              <button onClick={closeModal} name="action" value="Accept">
-                Accept
-              </button>
-              <button onClick={closeModal}>Close</button>
+              <div className=" flex flex-col items-center gap-3">
+                <span className="size-16 overflow-hidden rounded-full flex justify-center">
+                  <Image
+                    style={{ objectFit: "cover" }}
+                    src="/bugatti-veyron.jpg"
+                    height={64}
+                    width={64}
+                    alt="next image"
+                  />
+                </span>
+                <p className="font-extrabold text-xl">{inv.groupName}</p>
+              </div>
+              <p className="">
+                <span className="font-extrabold mr-1">{inv.PWS}</span>
+                is inviting you to
+                <span className="font-extrabold ml-1">{inv.groupName}</span>
+              </p>
+              <div className=" flex gap-4">
+                <button onClick={closeModal} name="action" value="Reject">
+                  Reject
+                </button>
+                <button onClick={closeModal} name="action" value="Accept">
+                  Accept
+                </button>
+              </div>
             </form>
           ))}
       </dialog>
