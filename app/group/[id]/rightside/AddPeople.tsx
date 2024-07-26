@@ -2,6 +2,8 @@
 import React, { useRef, useState } from "react";
 import updateUserInvitation from "@/server-actions/updateUserInvitation";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import clearChatLeaveGroup from "@/server-actions/clearChatLeaveGroup";
+import { useRouter } from "next/navigation";
 
 const AddPeople = ({
   groupId,
@@ -11,6 +13,8 @@ const AddPeople = ({
   profileName: string;
 }) => {
   const [downState, setDownState] = useState(false);
+
+  const router = useRouter();
 
   const formRef = useRef<HTMLFormElement>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -49,15 +53,52 @@ const AddPeople = ({
           className="fixed inset-0"
         ></div>
       )}
-      <button
-        onClick={openModal}
-        disabled={!downState}
-        className={`primary absolute bg-white rounded shadowAround px-4 py-2 -left-24 -bottom-3 text-nowrap ${
+      <div
+        className={`absolute top-6 bg-white rounded shadowAround px-4 py-2 -left-24 z-50  ${
           downState ? " inline-block " : " hidden "
         }`}
       >
-        Invite people
-      </button>
+        <button
+          onClick={openModal}
+          disabled={!downState}
+          className="primary text-nowrap py-2"
+        >
+          Invite people
+        </button>
+        <span className="inline-block w-full bg-gray-300 h-px" />
+        <form action={clearChatLeaveGroup}>
+          <input
+            className="hidden"
+            name="groupId"
+            defaultValue={groupId}
+            readOnly
+            type="text"
+          />
+          <button
+            onClick={() => {
+              router.push("/group");
+            }}
+            name="action"
+            value="clear"
+            disabled={!downState}
+            className="text-red-600  text-nowrap py-2"
+          >
+            Clear chat
+          </button>
+          <button
+            onClick={() => {
+              router.push("/group");
+            }}
+            name="action"
+            value="leave"
+            type="submit"
+            disabled={!downState}
+            className="text-red-600  text-nowrap py-2"
+          >
+            Leave Group
+          </button>
+        </form>
+      </div>
       <dialog className="rounded focus:outline-none" ref={dialogRef}>
         <form
           action={(formData) =>
