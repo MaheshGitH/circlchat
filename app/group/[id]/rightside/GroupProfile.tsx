@@ -3,13 +3,21 @@ import Image from "next/image";
 import React from "react";
 import { IoCaretBackOutline } from "react-icons/io5";
 import AddPeople from "./AddPeople";
+import { auth } from "@/auth";
 
 interface Props {
   profileName: string;
   groupId: string;
 }
 
-const GroupProfile = ({ profileName, groupId }: Props) => {
+const GroupProfile = async ({ profileName, groupId }: Props) => {
+  const session = await auth();
+  const user = await prisma?.user.findUnique({
+    where: {
+      email: session?.user?.email as string,
+    },
+  });
+
   return (
     <div className="flex items-center h-full p-1">
       <Link href="/group" className="text-2xl flex-shrink-0">
@@ -35,7 +43,11 @@ const GroupProfile = ({ profileName, groupId }: Props) => {
         </div>
       </div>
       <div className="w-10 h-full content-center flex-shrink-0 relative">
-        <AddPeople profileName={profileName} groupId={groupId}></AddPeople>
+        <AddPeople
+          userId={user?.user_id as string}
+          profileName={profileName}
+          groupId={groupId}
+        ></AddPeople>
       </div>
     </div>
   );

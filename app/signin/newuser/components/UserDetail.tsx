@@ -13,12 +13,13 @@ const UserDetail = async () => {
   return (
     <form className=" flex flex-col gap-6" action={updateNewUser}>
       <div className="flex justify-center w-full mb-5">
-        <span className="size-24 rounded-full overflow-hidden">
+        <span className="size-24 rounded-full overflow-hidden inline-block">
           <Image
-            src={session?.user?.image as string}
+            src={session?.user?.image || "/user-rectangle.svg"}
             width={96}
             height={96}
             alt="profile picture"
+            style={{ objectFit: "cover" }}
           />
         </span>
       </div>

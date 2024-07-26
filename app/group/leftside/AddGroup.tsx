@@ -4,7 +4,11 @@ import createGroup from "@/server-actions/createGroup";
 import React, { useRef } from "react";
 import Image from "next/image";
 
-const AddGroup = () => {
+interface Props {
+  userID: string;
+}
+
+const AddGroup = ({ userID }: Props) => {
   const formRef = useRef<HTMLFormElement>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -47,6 +51,13 @@ const AddGroup = () => {
           className="flex flex-col gap-14 items-center p-10"
           action={createGroup}
         >
+          <input
+            className="hidden"
+            name="userId"
+            value={userID}
+            type="text"
+            readOnly
+          />
           <span className="size-16 overflow-hidden rounded-full flex justify-center">
             <Image
               priority

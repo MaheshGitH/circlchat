@@ -32,11 +32,11 @@ const Group = async () => {
           <p className="text-xs mb-1 primary">2 hr ago</p>
         </span>
         <span className="flex justify-between">
-          <p className="text-black overflow-hidden text-nowrap text-ellipsis max-w-60">
-            Alok: new task to comp
+          <p className="text-black overflow-hidden text-nowrap text-ellipsis md:max-w-60 max-w-80">
+            task: last message to display here
           </p>
           <p className="size-6 text-[14px] rounded-full bg-primary leading-6 text-white text-center inline-block">
-            10
+            6
           </p>
         </span>
       </div>

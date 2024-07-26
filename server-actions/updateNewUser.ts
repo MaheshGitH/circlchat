@@ -18,5 +18,5 @@ export default async function updateNewUser(formData: FormData) {
       },
     });
   }
-  redirect("/");
+  redirect("/group");
 }

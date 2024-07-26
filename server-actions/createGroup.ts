@@ -1,25 +1,25 @@
 "use server";
 
-import { auth } from "@/auth";
 import { prisma } from "@/prisma/prismaClient";
-import { redirect } from "next/navigation";
 
 export default async function createGroup(formData: FormData) {
   const groupName = formData.get("groupName") as string;
-  const session = await auth();
+  const userId = formData.get("userId") as string;
 
-  if (!session) redirect("/signin");
   try {
     await prisma.$transaction(async (prisma) => {
       const group = await prisma.group.create({
         data: {
           groupName: groupName,
+          users: {
+            user_Id: userId,
+          },
         },
       });
 
       await prisma.user.update({
         where: {
-          email: session.user?.email || "",
+          user_id: userId || "",
         },
         data: {
           groups: {

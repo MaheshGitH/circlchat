@@ -65,6 +65,18 @@ export default async function acceptReject({
             },
           },
         });
+        await prisma.group.update({
+          where: {
+            id: groupId,
+          },
+          data: {
+            users: {
+              push: {
+                user_Id: userId,
+              },
+            },
+          },
+        });
       });
     } catch (error) {
       console.error("Transaction failed:", error);

@@ -2,7 +2,11 @@ import React from "react";
 import { Oranienbaum } from "next/font/google";
 import Logo from "../Logo";
 
-const oranienbaum = Oranienbaum({ weight: "400", subsets: ["latin"] });
+const oranienbaum = Oranienbaum({
+  weight: "400",
+  subsets: ["latin"],
+  preload: true,
+});
 
 const CirclChatLogol = () => {
   return (

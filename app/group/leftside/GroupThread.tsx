@@ -11,12 +11,12 @@ const GroupThread = () => {
         Group
       </Link>
 
-      <Link
+      <button
+        disabled
         className="border-b-2 border-black flex-1 text-center py-4"
-        href={"/thread"}
       >
         Thread
-      </Link>
+      </button>
     </span>
   );
 };

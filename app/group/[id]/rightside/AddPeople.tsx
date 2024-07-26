@@ -5,13 +5,13 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import clearChatLeaveGroup from "@/server-actions/clearChatLeaveGroup";
 import { useRouter } from "next/navigation";
 
-const AddPeople = ({
-  groupId,
-  profileName,
-}: {
+interface Props {
   groupId: string;
   profileName: string;
-}) => {
+  userId: string;
+}
+
+const AddPeople = ({ groupId, profileName, userId }: Props) => {
   const [downState, setDownState] = useState(false);
 
   const router = useRouter();
@@ -67,6 +67,13 @@ const AddPeople = ({
         </button>
         <span className="inline-block w-full bg-gray-300 h-px" />
         <form action={clearChatLeaveGroup}>
+          <input
+            className="hidden"
+            name="userId"
+            defaultValue={userId}
+            readOnly
+            type="text"
+          />
           <input
             className="hidden"
             name="groupId"

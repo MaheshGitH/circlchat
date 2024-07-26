@@ -20,7 +20,7 @@ const page = async () => {
       </BackGround>
     );
   } else {
-    redirect("/");
+    redirect("/group");
   }
 };
 

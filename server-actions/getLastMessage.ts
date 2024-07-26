@@ -21,7 +21,5 @@ export default async function getLastMessage(formData: FormData) {
     convo.push(parse);
   });
 
-  console.log(convo.length);
-
   return convo;
 }
