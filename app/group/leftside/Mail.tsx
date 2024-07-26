@@ -86,11 +86,21 @@ const Mail = ({ userId, invitationNum, group }: Props) => {
                 is inviting you to
                 <span className="font-extrabold ml-1">{inv.groupName}</span>
               </p>
-              <div className=" flex gap-4">
-                <button onClick={closeModal} name="action" value="Reject">
+              <div className="flex gap-4">
+                <button
+                  className="border py-2 px-10 rounded primary border-primary"
+                  onClick={closeModal}
+                  name="action"
+                  value="Reject"
+                >
                   Reject
                 </button>
-                <button onClick={closeModal} name="action" value="Accept">
+                <button
+                  className="border py-2 px-10 rounded bg-primary text-white"
+                  onClick={closeModal}
+                  name="action"
+                  value="Accept"
+                >
                   Accept
                 </button>
               </div>

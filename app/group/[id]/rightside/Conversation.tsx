@@ -100,7 +100,7 @@ const Conversation = ({
           <li
             ref={listRef}
             key={index}
-            className={`flex flex-col gap-2 w-10/12 lg:w-1/2 max-w-[750px] px-2 py-1 2xl:max-w-[800px] rounded border-2 relative chat-bubble text-black  ${
+            className={`flex flex-col gap-2 w-4/6 lg:w-1/2 max-w-[750px] px-2 py-1 2xl:max-w-[800px] rounded border-2 relative chat-bubble text-black  ${
               msg.userId == userId ? " mr-3 self-end receiver" : " ml-3 sender "
             }`}
           >
@@ -117,21 +117,22 @@ const Conversation = ({
               <p className="font-semibold">
                 {msg.userId == userId ? "You" : msg.userName}
               </p>
-              <p className="text-xs ml-auto">
+              <p className="text-xs ml-auto font-bold">
                 {msg.createdAt
                   ? new Date(msg.createdAt).toLocaleString("en-GB", {
                       day: "2-digit",
-                      month: "2-digit",
+                      month: "numeric",
                       year: "2-digit",
                       hour: "numeric",
                       minute: "2-digit",
-                      second: "2-digit",
                       hour12: true,
                     })
                   : "moment ago"}
               </p>
             </div>
-            <p className="overflow-hidden break-words">{msg.content}</p>
+            <p className="overflow-hidden break-words mt-2 ml-3">
+              {msg.content}
+            </p>
           </li>
         ))}
       </ul>

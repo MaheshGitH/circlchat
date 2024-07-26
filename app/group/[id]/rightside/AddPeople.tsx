@@ -102,7 +102,7 @@ const AddPeople = ({ groupId, profileName, userId }: Props) => {
             disabled={!downState}
             className="text-red-600  text-nowrap py-2"
           >
-            Leave Group
+            Leave group
           </button>
         </form>
       </div>

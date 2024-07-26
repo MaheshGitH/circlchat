@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { PiNotePencil } from "react-icons/pi";
 import { auth } from "@/auth";
+import PencilIcon from "./PencilIcon";
 
 const Profile = async () => {
   const session = await auth();
@@ -27,7 +28,7 @@ const Profile = async () => {
         <p className="font-bold text-[18px] mt-px">{user?.name}</p>
         <p className="text-[14px]">{user?.user_id}</p>
       </span>
-      <PiNotePencil className=" my-auto size-6" />
+      <PencilIcon></PencilIcon>
     </div>
   );
 };
