@@ -24,7 +24,7 @@ const GroupProfile = async ({ profileName, groupId }: Props) => {
         <IoCaretBackOutline className="size-10" />
       </Link>
       <div className="flex-grow gap-2 flex items-center h-full">
-        <span className="size-16 overflow-hidden rounded-full flex">
+        <span className="size-16 overflow-hidden rounded-full flex dark:border">
           <Image
             style={{ objectFit: "cover" }}
             src="/google-logo.jpg"

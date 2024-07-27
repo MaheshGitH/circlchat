@@ -39,7 +39,7 @@ const TypeMessage = ({ groupId, userName, userId }: Props) => {
   return (
     <div className="flex h-full p-2">
       <div className="flex-shrink-0 w-14">
-        <RiGhostSmileLine className="size-8 m-auto h-full" />
+        <RiGhostSmileLine className="size-8 m-auto h-full dark:text-white/30" />
       </div>
       <div className="flex-grow flex items-center">
         <form
@@ -47,7 +47,7 @@ const TypeMessage = ({ groupId, userName, userId }: Props) => {
             event.preventDefault();
             sendMessage();
           }}
-          className="flex border-2 border-black rounded-full flex-grow"
+          className="flex border-2 border-black dark:border-white/70 rounded-full flex-grow"
         >
           <input
             ref={inputRef}
@@ -61,7 +61,7 @@ const TypeMessage = ({ groupId, userName, userId }: Props) => {
         </form>
       </div>
       <div className="flex-shrink-0 w-14">
-        <MdAttachFile className="size-8 m-auto h-full" />
+        <MdAttachFile className="size-8 m-auto h-full dark:text-white/30" />
       </div>
     </div>
   );

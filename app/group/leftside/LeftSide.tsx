@@ -13,7 +13,7 @@ const LeftSide = async () => {
     },
   });
   return (
-    <div className="flex md:w-96 h-full flex-col border-r-[1px] border-black">
+    <div className="flex md:w-96 h-full flex-col border-r-[1px] border-black dark:border-white/80">
       <Head></Head>
       <div className="flex-grow">
         <Group></Group>

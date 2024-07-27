@@ -19,7 +19,7 @@ const PencilIcon = () => {
         <>
           <div onClick={handleClick} className="fixed inset-0"></div>
           <button
-            className="absolute -top-10 -left-3 border-2 py-1 px-6 rounded bg-white text-red-500"
+            className="absolute -top-10 -left-3 border py-1 px-6 rounded bg-white dark:bg-black text-red-500"
             onClick={() => signOut({ callbackUrl: "/" })}
           >
             Logout

@@ -35,13 +35,15 @@ const Mail = ({ userId, invitationNum, group }: Props) => {
   return (
     <>
       <span className="flex items-center relative">
-        <MdOutlineMail
+        <button
+          disabled={(invitationNum as number) < 1 ? true : false}
           onClick={openModal}
-          className="cursor-pointer text-black size-8 mr-8"
-        />
-        <p className="size-6 absolute top-3 right-5  text-[14px] rounded-full bg-primary leading-6 text-white text-center inline-block">
-          {invitationNum}
-        </p>
+        >
+          <MdOutlineMail className="text-black size-8 mr-8 dark:text-white/75" />
+          <p className="size-6 absolute top-3 right-5  text-[14px] rounded-full bg-primary leading-6 text-white text-center inline-block">
+            {invitationNum}
+          </p>
+        </button>
       </span>
       <dialog
         className="rounded focus:outline-none relative overflow-x-hidden overflow-y-scroll"
@@ -96,7 +98,7 @@ const Mail = ({ userId, invitationNum, group }: Props) => {
                   Reject
                 </button>
                 <button
-                  className="border py-2 px-10 rounded bg-primary text-white"
+                  className=" py-2 px-10 rounded bg-primary text-white"
                   onClick={closeModal}
                   name="action"
                   value="Accept"

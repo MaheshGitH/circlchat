@@ -86,7 +86,7 @@ const Conversation = ({
           readOnly
         />
         <button
-          className=" border-gray-200 border py-1 px-8 rounded text-[14px]"
+          className="border-gray-200 border py-1 px-8 rounded text-[14px]"
           disabled={lastMsg}
           onClick={() => {
             setIncrement((prev) => prev + 1);
@@ -100,7 +100,7 @@ const Conversation = ({
           <li
             ref={listRef}
             key={index}
-            className={`flex flex-col gap-2 w-4/6 lg:w-1/2 max-w-[750px] px-2 py-1 2xl:max-w-[800px] rounded border-2 relative chat-bubble text-black  ${
+            className={`flex flex-col gap-2 w-4/6 lg:w-1/2 max-w-[750px] px-2 py-1 2xl:max-w-[800px] rounded border-2 relative chat-bubble text-black dark:text-white/80 ${
               msg.userId == userId ? " mr-3 self-end receiver" : " ml-3 sender "
             }`}
           >
@@ -130,7 +130,7 @@ const Conversation = ({
                   : "moment ago"}
               </p>
             </div>
-            <p className="overflow-hidden break-words mt-2 ml-3">
+            <p className="overflow-hidden break-words mt-2 ml-3 dark:text-white">
               {msg.content}
             </p>
           </li>

@@ -6,8 +6,8 @@ const page = () => {
   return (
     <BackGround>
       <div className=" flex items-center justify-between py-2 px-6">
-        <p className=" font-extrabold text-lg">
-          &nbsp;check &nbsp; you'r &nbsp; email&nbsp; 👉&nbsp;&nbsp;
+        <p className=" font-extrabold text-lg text-black">
+          &nbsp;check &nbsp; you&apos;r &nbsp; email&nbsp; 👉&nbsp;&nbsp;
         </p>
         <MdOutlineMail className="text-black size-8" />
       </div>

@@ -1,5 +1,4 @@
 "use server";
-import { auth } from "@/auth";
 import mongoClient from "@/mongodb/mongodb";
 import { prisma } from "@/prisma/prismaClient";
 

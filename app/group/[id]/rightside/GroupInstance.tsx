@@ -27,7 +27,7 @@ const GroupInstance = async ({ groupId }: Props) => {
 
   return (
     <div className="flex flex-col justify-between h-dvh">
-      <div className="h-20 flex-shrink-0 border-b-[1px] border-black">
+      <div className="h-20 flex-shrink-0 border-b-[1px] border-black dark:border-white/80">
         <GroupProfile
           groupId={groupId}
           profileName={group?.groupName as string}

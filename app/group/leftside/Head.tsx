@@ -17,7 +17,7 @@ const Head = async () => {
   return (
     <section className="mb-2">
       <div className="flex justify-between">
-        <span className="size-20 flex ml-5 md:ml-36 duration-200">
+        <span className="size-20 flex ml-5 md:ml-36 duration-200 dark:fill-white">
           <Logo />
         </span>
         <Mail

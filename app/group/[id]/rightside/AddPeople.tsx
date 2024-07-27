@@ -43,7 +43,7 @@ const AddPeople = ({ groupId, profileName, userId }: Props) => {
     <>
       <button
         onClick={() => setDownState((prev) => !prev)}
-        className=" focus:outline-none"
+        className="focus:outline-none"
       >
         <BsThreeDotsVertical className="size-8" />
       </button>
@@ -54,7 +54,7 @@ const AddPeople = ({ groupId, profileName, userId }: Props) => {
         ></div>
       )}
       <div
-        className={`absolute top-6 bg-white rounded shadowAround px-4 py-2 -left-24 z-50  ${
+        className={`absolute top-6 bg-white dark:bg-black font-semibold rounded shadowAround px-4 py-2 -left-24 z-50  ${
           downState ? " inline-block " : " hidden "
         }`}
       >
@@ -88,7 +88,7 @@ const AddPeople = ({ groupId, profileName, userId }: Props) => {
             name="action"
             value="clear"
             disabled={!downState}
-            className="text-red-600  text-nowrap py-2"
+            className="text-red-600  text-nowrap py-2 mb-3"
           >
             Clear chat
           </button>
@@ -106,7 +106,10 @@ const AddPeople = ({ groupId, profileName, userId }: Props) => {
           </button>
         </form>
       </div>
-      <dialog className="rounded focus:outline-none" ref={dialogRef}>
+      <dialog
+        className="rounded focus:outline-none border border-white/80"
+        ref={dialogRef}
+      >
         <form
           action={(formData) =>
             updateUserInvitation({ formData, groupId, profileName })
@@ -123,16 +126,19 @@ const AddPeople = ({ groupId, profileName, userId }: Props) => {
             <input
               name="username"
               placeholder=""
-              className="outline-none border-b-2 z-50 border-black px-2 py-1 bg-transparent peer"
+              className="outline-none border-b-2 z-50 border-black dark:border-white/80 px-2 py-1 bg-transparent peer"
               type="text"
             />
-            <span className="absolute -z-40 mx-2 mb-2 left-0 text-gray-500 duration-200 peer-focus:-top-6 peer-focus:-left-1 peer-focus:text-black peer-focus:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:text-base">
+            <span className="absolute -z-40 mx-2 mb-2 left-0 text-gray-500 duration-200 peer-focus:-top-6 peer-focus:-left-1 peer-focus:text-black dark:peer-focus:text-white/80 peer-focus:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:text-base">
               @username
             </span>
           </div>
         </form>
         <div className="flex gap-10 justify-center my-5">
-          <button onClick={closeModal} className="primary px-6 py-2 rounded">
+          <button
+            onClick={closeModal}
+            className="primary px-6 py-2 rounded border-primary border"
+          >
             Close
           </button>
           <button
