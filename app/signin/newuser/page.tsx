@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import { prisma } from "@/prisma/prismaClient";
+import prisma from "@/prisma/prismaClient";
 import { redirect } from "next/navigation";
 import BackGround from "../components/BackGround";
 import NewUser from "./components/NewUser";

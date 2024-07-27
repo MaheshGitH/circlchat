@@ -1,6 +1,6 @@
 "use server";
 import { auth } from "@/auth";
-import { prisma } from "@/prisma/prismaClient";
+import prisma from "@/prisma/prismaClient";
 import { redirect } from "next/navigation";
 
 export default async function updateNewUser(formData: FormData) {

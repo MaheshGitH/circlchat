@@ -1,6 +1,6 @@
 "use server";
 import mongoClient from "@/mongodb/mongodb";
-import { prisma } from "@/prisma/prismaClient";
+import prisma from "@/prisma/prismaClient";
 
 export default async function clearChatLeaveGroup(formData: FormData) {
   const id = formData.get("groupId") as string;

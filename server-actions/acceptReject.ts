@@ -1,6 +1,6 @@
 "use server";
 
-import { prisma } from "@/prisma/prismaClient";
+import prisma from "@/prisma/prismaClient";
 
 interface Props {
   groupId: string;

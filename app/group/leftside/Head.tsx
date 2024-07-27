@@ -3,6 +3,7 @@ import React from "react";
 import GroupThread from "./GroupThread";
 import Mail from "./Mail";
 import { auth } from "@/auth";
+import prisma from "@/prisma/prismaClient";
 
 const Head = async () => {
   const session = await auth();

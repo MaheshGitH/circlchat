@@ -1,6 +1,6 @@
 "use server";
 
-import { prisma } from "@/prisma/prismaClient";
+import prisma from "@/prisma/prismaClient";
 
 export default async function createGroup(formData: FormData) {
   const groupName = formData.get("groupName") as string;

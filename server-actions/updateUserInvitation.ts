@@ -1,6 +1,7 @@
 "use server";
 
 import { auth } from "@/auth";
+import prisma from "@/prisma/prismaClient";
 
 interface Props {
   formData: FormData;

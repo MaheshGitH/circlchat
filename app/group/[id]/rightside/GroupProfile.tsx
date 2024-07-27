@@ -4,6 +4,7 @@ import React from "react";
 import { IoCaretBackOutline } from "react-icons/io5";
 import AddPeople from "./AddPeople";
 import { auth } from "@/auth";
+import prisma from "@/prisma/prismaClient";
 
 interface Props {
   profileName: string;

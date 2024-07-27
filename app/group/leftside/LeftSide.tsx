@@ -4,6 +4,7 @@ import Group from "./Group";
 import Profile from "./Profile";
 import AddGroup from "./AddGroup";
 import { auth } from "@/auth";
+import prisma from "@/prisma/prismaClient";
 
 const LeftSide = async () => {
   const session = await auth();

@@ -2,6 +2,7 @@ import { auth } from "@/auth";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import prisma from "@/prisma/prismaClient";
 
 const Group = async () => {
   const session = await auth();

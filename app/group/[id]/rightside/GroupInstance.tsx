@@ -2,7 +2,7 @@ import React from "react";
 import GroupProfile from "./GroupProfile";
 import TypeMessage from "./TypeMessage";
 import Conversation from "./Conversation";
-import { prisma } from "@/prisma/prismaClient";
+import prisma from "@/prisma/prismaClient";
 import { auth } from "@/auth";
 
 interface Props {

@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 // database
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { prisma } from "./prisma/prismaClient";
+import prisma from "./prisma/prismaClient";
 // types
 import type { Provider } from "next-auth/providers";
 // providers
@@ -27,6 +27,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     verifyRequest: "/signin/check-email",
     newUser: "/signin/newuser",
   },
+  trustHost: true,
 
   callbacks: {
     async signIn({ user, account }) {

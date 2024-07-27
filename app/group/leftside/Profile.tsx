@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { PiNotePencil } from "react-icons/pi";
+import prisma from "@/prisma/prismaClient";
 import { auth } from "@/auth";
 import PencilIcon from "./PencilIcon";
 
