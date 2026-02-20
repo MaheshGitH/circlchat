@@ -5,6 +5,11 @@ CircleChat
 
 GitHub: [github.com/MaheshGitH/circlechat](https://github.com/MaheshGitH/circlechat)
 
+## 🎥 Demo
+
+Watch the demo video:  
+<video src="https://github.com/user-attachments/assets/7fd07963-a55c-42a5-9134-24c40a8560f9" title="Demo"/>
+
 ## 🛠️ Tech Stack
 
 - Next.js
